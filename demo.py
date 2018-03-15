@@ -14,14 +14,3 @@ c=a.decode('utf-8')
 
 #print(c)
 
-
-
-import random
-def getRandomNum(num):
-    a=random.randint(0,num)
-    print(a)
-
-
-getRandomNum(10)
-
-
