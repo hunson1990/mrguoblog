@@ -1,0 +1,89 @@
+{%extends 'myblog/base.html'%}
+
+
+
+{%block subTitle%}
+    {{subTitle}}
+{%endblock subTitle%}
+
+{% load highlight %}
+{%block body%}
+    <div class="container one-collumn sidebar-position-leftpage-home">
+        <div class="headband"></div>
+
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+            {% include 'myblog/header-inner.html' %}
+        </header>
+
+        <main id="main" class="main">
+            <div class="main-inner">
+                <div class="sidebar-toggle">
+                    <div class="sidebar-toggle-line-wrap">
+                        <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+                    </div>
+                </div>
+
+                <aside id="sidebar" class="sidebar" style="margin-top: 302px; display: block;">
+                    {% include 'myblog/sidebar-inner.html' %}
+                </aside>
+
+                <div class="content-wrap">
+
+                {% for blog in page.object_list %}
+
+                    <div>
+                        <a href="{%url 'myblog:blogDetail' blog.object.id%}">
+                            <h3>{{ forloop.counter }}、{% highlight blog.object.title with query %}</h3>
+                        </a>
+
+                        <div style="word-wrap: break-word">
+                            {% highlight blog.object.content with query %}
+                        </div>
+
+
+                        {% if forloop.counter == page.object_list|length %}
+                            {% else %}
+                            <hr>
+                        {% endif %}
+                    </div>
+                {% empty %}
+                    <div class="no-post">没有搜索到相关内容，请重新搜索</div>
+                {% endfor %}
+
+                    <!--分页展示-->
+                    <nav class="pagination">
+                        <div class="pageturn">
+                            <ul class="pagelist">
+
+                            {% if page.has_previous %}
+                                <li class="long"><a href="?q={{ query }}&amp;page={{ page.previous_page_number }}">上一页</a></li>
+                            {% endif %}
+
+                             {% for index in page.pages %}
+                                {% if index %}
+                                    {% ifequal index page.number %}
+                                        <li class="active"><a href="?q={{ query }}&amp;page={{ index }}">{{ index }}</a></li>
+                                    {% else %}
+                                         <li><a href="?q={{ query }}&amp;page={{ index }}" class="page">{{ index }}</a></li>
+                                    {% endifequal %}
+                                {% else %}
+                             <li class="none"><a href="">...</a></li>
+                            {% endif %}
+                            {% endfor %}
+                            {% if page.has_next %}
+                                <li class="long"><a href="?q={{ query }}&amp;page={{ page.next_page_number }}">下一页</a></li>
+                            {% endif %}
+
+                            </ul>
+                        </div>
+                    </nav>
+                </div>
+
+
+            </div>
+        </main>
+    </div>
+
+{%endblock body%}

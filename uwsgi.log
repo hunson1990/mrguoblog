@@ -1,0 +1,172 @@
+*** Starting uWSGI 2.0.15 (64bit) on [Tue Mar 13 19:45:13 2018] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.39.2) on 29 January 2018 18:53:30
+os: Darwin-17.2.0 Darwin Kernel Version 17.2.0: Fri Sep 29 18:27:05 PDT 2017; root:xnu-4570.20.62~3/RELEASE_X86_64
+nodename: hunsondeiMac.local
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /Users/hunson/django/mrguoblog
+writing pidfile to uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /Users/hunson/django/mrguoblog
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 256
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+probably another instance of uWSGI is running on the same address (127.0.0.1:8000).
+bind(): Address already in use [core/socket.c line 769]
+*** Starting uWSGI 2.0.15 (64bit) on [Tue Mar 13 19:45:36 2018] ***
+compiled with version: 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.39.2) on 29 January 2018 18:53:30
+os: Darwin-17.2.0 Darwin Kernel Version 17.2.0: Fri Sep 29 18:27:05 PDT 2017; root:xnu-4570.20.62~3/RELEASE_X86_64
+nodename: hunsondeiMac.local
+machine: x86_64
+clock source: unix
+detected number of CPU cores: 8
+current working directory: /Users/hunson/django/mrguoblog
+writing pidfile to uwsgi.pid
+detected binary path: /usr/local/bin/uwsgi
+!!! no internal routing support, rebuild with pcre support !!!
+chdir() to /Users/hunson/django/mrguoblog
+your processes number limit is 709
+your memory page size is 4096 bytes
+detected max file descriptor number: 256
+lock engine: OSX spinlocks
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to TCP address 127.0.0.1:8000 fd 3
+Python version: 3.6.3 (default, Oct  4 2017, 06:09:38)  [GCC 4.2.1 Compatible Apple LLVM 9.0.0 (clang-900.0.37)]
+Set PythonHome to /Users/hunson/envs/mrguoBlog
+Python main interpreter initialized at 0x7f83e501de00
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 415200 bytes (405 KB) for 8 cores
+*** Operational MODE: preforking+threaded ***
+WSGI app 0 (mountpoint='') ready in 0 seconds on interpreter 0x7f83e501de00 pid: 11574 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 11574)
+spawned uWSGI worker 1 (pid: 11575, cores: 2)
+spawned uWSGI worker 2 (pid: 11576, cores: 2)
+spawned uWSGI worker 3 (pid: 11577, cores: 2)
+spawned uWSGI worker 4 (pid: 11578, cores: 2)
+[pid: 11578|app: 0|req: 1/1] 127.0.0.1 () {44 vars in 874 bytes} [Tue Mar 13 11:45:40 2018] GET / => generated 22396 bytes in 1066 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+Not Found: /favicon.ico
+[pid: 11578|app: 0|req: 2/2] 127.0.0.1 () {42 vars in 844 bytes} [Tue Mar 13 11:47:39 2018] GET /favicon.ico => generated 3170 bytes in 5 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 11578|app: 0|req: 3/3] 127.0.0.1 () {44 vars in 873 bytes} [Tue Mar 13 11:55:00 2018] GET / => generated 22396 bytes in 17 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+Internal Server Error: /tags/
+Traceback (most recent call last):
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/site-packages/django/core/handlers/exception.py", line 42, in inner
+    response = get_response(request)
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/site-packages/django/core/handlers/base.py", line 172, in _get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/site-packages/django/urls/resolvers.py", line 270, in resolve
+    for pattern in self.url_patterns:
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/site-packages/django/urls/resolvers.py", line 313, in url_patterns
+    patterns = getattr(self.urlconf_module, "urlpatterns", self.urlconf_module)
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/site-packages/django/utils/functional.py", line 35, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/site-packages/django/urls/resolvers.py", line 306, in urlconf_module
+    return import_module(self.urlconf_name)
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "./mrguoblog/urls.py", line 23, in <module>
+    url(r'^articleSpider',include('articleSpider.urls')),
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/site-packages/django/conf/urls/__init__.py", line 50, in include
+    urlconf_module = import_module(urlconf_module)
+  File "/Users/hunson/envs/mrguoBlog/lib/python3.6/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 994, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 971, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 955, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 665, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 678, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "./articleSpider/urls.py", line 6, in <module>
+    url(r'^$',views.v_index,name='index'),
+AttributeError: module 'articleSpider.views' has no attribute 'v_index'
+[pid: 11577|app: 0|req: 1/4] 127.0.0.1 () {44 vars in 890 bytes} [Tue Mar 13 13:39:08 2018] GET /tags/ => generated 103257 bytes in 1040 msecs (HTTP/1.1 500) 3 headers in 106 bytes (1 switches on core 1)
+[pid: 11578|app: 0|req: 4/5] 127.0.0.1 () {46 vars in 921 bytes} [Tue Mar 13 13:39:59 2018] GET /tags/ => generated 13880 bytes in 38 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+Not Found: /tags/image/logo.ico
+[pid: 11577|app: 0|req: 2/6] 127.0.0.1 () {46 vars in 895 bytes} [Tue Mar 13 13:39:59 2018] GET /tags/image/logo.ico => generated 3308 bytes in 8 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 11577|app: 0|req: 3/7] 127.0.0.1 () {44 vars in 901 bytes} [Tue Mar 13 13:40:01 2018] GET /archive/ => generated 15190 bytes in 52 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+Not Found: /archive/image/logo.ico
+[pid: 11577|app: 0|req: 4/8] 127.0.0.1 () {42 vars in 851 bytes} [Tue Mar 13 13:40:01 2018] GET /archive/image/logo.ico => generated 3317 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 11578|app: 0|req: 5/9] 127.0.0.1 () {44 vars in 898 bytes} [Tue Mar 13 13:40:03 2018] GET /tags/ => generated 13880 bytes in 17 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+[pid: 11577|app: 0|req: 5/10] 127.0.0.1 () {44 vars in 895 bytes} [Tue Mar 13 13:40:18 2018] GET /tags/ => generated 13880 bytes in 16 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 1)
+Not Found: /articleSpider/
+[pid: 11577|app: 0|req: 6/11] 127.0.0.1 () {42 vars in 870 bytes} [Tue Mar 13 13:44:49 2018] GET /articleSpider/ => generated 3179 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+Not Found: /articleSpider/get_ip/
+[pid: 11577|app: 0|req: 7/12] 127.0.0.1 () {42 vars in 884 bytes} [Tue Mar 13 13:45:10 2018] GET /articleSpider/get_ip/ => generated 3200 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+Not Found: /articleSpider/get_ip/
+[pid: 11577|app: 0|req: 8/13] 127.0.0.1 () {44 vars in 915 bytes} [Tue Mar 13 13:46:33 2018] GET /articleSpider/get_ip/ => generated 3200 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+Not Found: /articleSpider/
+[pid: 11578|app: 0|req: 6/14] 127.0.0.1 () {42 vars in 870 bytes} [Tue Mar 13 13:48:00 2018] GET /articleSpider/ => generated 3179 bytes in 4 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 11578|app: 0|req: 7/15] 127.0.0.1 () {42 vars in 842 bytes} [Tue Mar 13 13:51:22 2018] GET / => generated 22396 bytes in 23 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 1)
+[pid: 11577|app: 0|req: 9/16] 127.0.0.1 () {44 vars in 890 bytes} [Tue Mar 13 13:51:25 2018] GET /tags/ => generated 13880 bytes in 15 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+[pid: 11577|app: 0|req: 10/17] 127.0.0.1 () {44 vars in 901 bytes} [Tue Mar 13 13:51:28 2018] GET /archive/ => generated 15190 bytes in 11 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+Building prefix dict from the default dictionary ...
+Dumping model to file cache /var/folders/_v/8lsh5ch97hx2x64qtz2c8jq00000gn/T/jieba.cache
+Loading model cost 1.044 seconds.
+Prefix dict has been built succesfully.
+[pid: 11575|app: 0|req: 1/18] 127.0.0.1 () {44 vars in 902 bytes} [Tue Mar 13 13:52:54 2018] GET /blog/3/ => generated 17621 bytes in 2152 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 0)
+Not Found: /blog/3/image/logo.ico
+[pid: 11577|app: 0|req: 11/19] 127.0.0.1 () {42 vars in 848 bytes} [Tue Mar 13 13:52:57 2018] GET /blog/3/image/logo.ico => generated 3314 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 11578|app: 0|req: 8/20] 127.0.0.1 () {44 vars in 897 bytes} [Tue Mar 13 13:53:07 2018] GET /tags/ => generated 13880 bytes in 19 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+Not Found: /article/tags/
+[pid: 11577|app: 0|req: 12/21] 127.0.0.1 () {42 vars in 868 bytes} [Tue Mar 13 13:54:02 2018] GET /article/tags/ => generated 3290 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+[pid: 11576|app: 0|req: 1/22] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:54:24 2018] GET /article/tags/ => generated 17 bytes in 1002 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+Not Found: /article/tags/
+[pid: 11577|app: 0|req: 13/23] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:55:57 2018] GET /article/tags/ => generated 3290 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+Not Found: /article/tags/
+[pid: 11577|app: 0|req: 14/24] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:56:22 2018] GET /article/tags/ => generated 3290 bytes in 4 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+Not Found: /article/tags/
+[pid: 11577|app: 0|req: 15/25] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:56:23 2018] GET /article/tags/ => generated 3290 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+Not Found: /article/tags/
+[pid: 11577|app: 0|req: 16/26] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:56:31 2018] GET /article/tags/ => generated 3290 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 11576|app: 0|req: 2/27] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:56:34 2018] GET /article/tags/ => generated 17 bytes in 0 msecs (HTTP/1.1 200) 2 headers in 80 bytes (1 switches on core 0)
+Not Found: /article/tags/
+[pid: 11578|app: 0|req: 9/28] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:56:35 2018] GET /article/tags/ => generated 3176 bytes in 7 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+Not Found: /article/tags/
+[pid: 11577|app: 0|req: 17/29] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:56:37 2018] GET /article/tags/ => generated 3290 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+Not Found: /article/tags/
+[pid: 11578|app: 0|req: 10/30] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:56:42 2018] GET /article/tags/ => generated 3176 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 1)
+Not Found: /article/tags/
+[pid: 11578|app: 0|req: 11/31] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:57:01 2018] GET /article/tags/ => generated 3176 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+Not Found: /article/tags/
+[pid: 11578|app: 0|req: 12/32] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:57:03 2018] GET /article/tags/ => generated 3176 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 1)
+Not Found: /article/tags/
+[pid: 11578|app: 0|req: 13/33] 127.0.0.1 () {44 vars in 899 bytes} [Tue Mar 13 13:57:05 2018] GET /article/tags/ => generated 3176 bytes in 3 msecs (HTTP/1.1 404) 2 headers in 80 bytes (2 switches on core 0)
+[pid: 11578|app: 0|req: 14/34] 127.0.0.1 () {42 vars in 929 bytes} [Tue Mar 13 14:00:37 2018] GET / => generated 22396 bytes in 37 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+Not Found: /image/logo.ico
+[pid: 11577|app: 0|req: 18/35] 127.0.0.1 () {42 vars in 914 bytes} [Tue Mar 13 14:00:38 2018] GET /image/logo.ico => generated 3293 bytes in 7 msecs (HTTP/1.1 404) 2 headers in 80 bytes (1 switches on core 0)
+[pid: 11577|app: 0|req: 19/36] 127.0.0.1 () {44 vars in 960 bytes} [Tue Mar 13 14:02:55 2018] GET / => generated 22396 bytes in 25 msecs (HTTP/1.1 200) 2 headers in 88 bytes (1 switches on core 1)
+[pid: 11578|app: 0|req: 15/37] 127.0.0.1 () {42 vars in 929 bytes} [Tue Mar 13 14:04:04 2018] GET / => generated 22396 bytes in 19 msecs (HTTP/1.1 200) 2 headers in 88 bytes (2 switches on core 0)
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+invalid request block size: 21573 (max 4096)...skip
+Wed Mar 14 10:57:56 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Mar 14 10:57:56 2018 - uWSGI worker 3 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Mar 14 10:57:56 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Mar 14 10:57:56 2018 - uWSGI worker 4 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Mar 14 10:57:56 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Mar 14 10:57:56 2018 - uWSGI worker 2 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Mar 14 10:57:56 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!
+Wed Mar 14 10:57:56 2018 - uWSGI worker 1 screams: UAAAAAAH my master disconnected: i will kill myself !!!

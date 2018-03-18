@@ -1,0 +1,97 @@
+{%extends 'myblog/base.html'%}
+
+
+
+{%block subTitle%}
+    {{subTitle}}
+{%endblock subTitle%}
+
+
+{%block body%}
+<script>
+
+    function spider_start() {
+		url_start='http://localhost:6800/schedule.json';
+        spiderName=$(this).parent().find('span').text()
+        dataSend={
+            project:'articleSpider',
+            spider:spiderName,
+        }
+
+        li_obj = $(this).parent()
+        $.post(url_start,dataSend,function (data) {
+            //alert(data.jobid);
+            if(data.status == 'ok'){
+                alert('爬虫开始运行')
+                li_obj.attr('id',data.jobid)
+            }
+
+        })
+
+    }
+
+    function spider_stop() {
+        url_stop ='http://127.0.0.1:6800/cancel.json';
+
+        spider_obid=$(this).parent().attr('id')
+        dataSend={
+            project:'articleSpider',
+            job:spider_obid,
+        }
+        $.post(url_stop,dataSend,function (data) {
+            if(data.status == 'ok'){
+                alert('爬虫停止运行')
+            }
+        })
+    }
+
+	$(function(){
+	    $('.spiders li .start').on('click',spider_start)
+        $('.spiders li .stop').on('click',spider_stop)
+	})
+
+</script>
+
+
+    <div class="container one-collumn sidebar-position-leftpage-home">
+        <div class="headband"></div>
+
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+            {% include 'myblog/header-inner.html' %}
+        </header>
+
+        <main id="main" class="main">
+            <div class="main-inner">
+                <div class="sidebar-toggle">
+                    <div class="sidebar-toggle-line-wrap">
+                        <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+                    </div>
+                </div>
+
+                <aside id="sidebar" class="sidebar">
+                    {% include 'myblog/sidebar-inner.html' %}
+                </aside>
+
+                
+<div class="content-wrap">
+    <div id="content" class="content">
+        <!--自己写的html-->
+        <h1>articleSpiders里面的爬虫</h1>
+        <ul class="spiders">
+            {%for spider in articleSpiders%}
+            <li><span><b style="color: red">{{spider}}</b></span> : <a href="javascript:void(0);" class="start" style="border-bottom: none;">开始爬虫</a> ; <a href="javascript:void(0);" class="stop" style="border-bottom: none;">停止爬虫</a></li>
+            {%endfor%}
+        </ul>
+        <a href="http://127.0.0.1:6800/jobs" target="_blank">查看爬虫运行状态</a>
+    </div>
+
+</div>
+
+
+            </div>
+        </main>
+    </div>
+
+{%endblock body%}

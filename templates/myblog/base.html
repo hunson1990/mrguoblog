@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<meta name="keywords" content="{{keywords}}">
+<meta name="description" content="{{description}}">
+
+<title>{{title}}-{%block subTitle%}{%endblock subTitle%}</title>
+
+{%load static from staticfiles%}
+<link href="{%static '/css_js/jquery.fancybox.css'%}" rel="stylesheet" type="text/css">
+<link href="{%static '/css_js/font-awesome.min.css'%}" rel="stylesheet" type="text/css">
+<link href="{%static '/css_js/main.css'%}" rel="stylesheet" type="text/css">
+<link href="{%static '/css_js/extra.css'%}" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="{%static 'css_js/jquery-3.1.1.min.js'%}"></script>
+
+
+<!--搜索关键词高亮-->
+<style>
+        span.highlighted {
+            color: red;
+        }
+</style>
+
+<script src="{%static '/css_js/push.js'%}"></script>
+<script src="{%static '/css_js/hm.js'%}"></script>
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"always"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '925690',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style>
+<style type="text/css">.fancybox-margin{margin-right:17px;}</style>
+</head>
+<body>
+
+
+{%block body%}{%endblock body%}
+
+    <script type="text/javascript">
+      if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+        window.Promise = null;
+      }
+    </script>
+    <script type="text/javascript" src="{%static '/css_js/index.js'%}"></script>
+    <script type="text/javascript" src="{%static '/css_js/fastclick.min.js'%}"></script>
+    <script type="text/javascript" src="{%static '/css_js/jquery.lazyload.js'%} "></script>
+    <script type="text/javascript" src="{%static '/css_js/velocity.min.js'%} "></script>
+    <script type="text/javascript" src="{%static '/css_js/velocity.ui.min.js'%} "></script>
+    <script type="text/javascript" src="{%static '/css_js/jquery.fancybox.pack.js'%} "></script>
+    <script type="text/javascript" src="{%static '/css_js/utils.js'%} "></script>
+    <script type="text/javascript" src="{%static '/css_js/motion.js'%} "></script>
+    <script type="text/javascript" src="{%static '/css_js/affix.js'%} "></script>
+    <script type="text/javascript" src="{%static '/css_js/pisces.js'%} "></script>
+    <script type="text/javascript" src="{%static '/css_js/bootstrap.js'%} "></script>
+
+
+
+</body>
+</html>

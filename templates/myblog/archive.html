@@ -1,0 +1,106 @@
+{%extends 'myblog/base.html'%}
+
+
+
+{%block subTitle%}
+    {{subTitle}}
+{%endblock subTitle%}
+
+
+{%block body%}
+    <div class="container one-collumn sidebar-position-leftpage-home">
+        <div class="headband"></div>
+
+        <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+            {% include 'myblog/header-inner.html' %}
+        </header>
+
+        <main id="main" class="main">
+            <div class="main-inner">
+                <div class="sidebar-toggle">
+                    <div class="sidebar-toggle-line-wrap">
+                        <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+                        <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+                    </div>
+                </div>
+
+                <aside id="sidebar" class="sidebar" style="margin-top: 302px; display: block;">
+                    {% include 'myblog/sidebar-inner.html' %}
+                </aside>
+
+                
+<div class="content-wrap">
+    <div id="content" class="content">
+        <section id="posts" class="posts-collapse">
+            <span class="archive-move-on"></span>
+            <span class="archive-page-counter">非常好! 目前共计{{blogsCount}}篇日志。 继续努力。</span>
+
+            {% regroup blogs.object_list by createTime.year as dates_by_year %}
+            {%for year in dates_by_year%}
+                <div class="collection-title">
+                    <h2 class="archive-year motion-element" id="archive-year-{{year.grouper}}<" style="opacity: 1; display: block; transform: translateX(0px);">{{year.grouper}}</h2>
+                </div>
+                {%for blog in year.list%}
+                    <article class="post post-type-normal" itemscope="">
+                    <header class="post-header">
+
+                    <h1 class="post-title">
+                        <a class="post-title-link" href="/blog/{{blog.id}}/" itemprop="url">
+                            <span itemprop="name">{{blog.title}}</span>
+                         </a>
+                    </h1>
+
+                    <div class="post-meta">
+                        <time class="post-time" itemprop="dateCreated" datetime="{{blog.createTime}}" content="{{blog.createTime}}">
+                            {{blog.createTime|date:"m-d" }}
+                        </time>
+                    </div>
+
+                    </header>
+                    </article>
+                {%endfor%}
+            {%endfor%}
+        </section>
+
+
+
+        <!--分页展示-->
+        <nav class="pagination">
+            <div class="pageturn">
+                <ul class="pagelist">
+
+                    {% if blogs.has_previous %}
+                        <li class="long"><a href="?{{ blogs.previous_page_number.querystring }}">上一页</a></li>
+                    {% endif %}
+
+                    {% for page in blogs.pages %}
+                    {% if page %}
+                        {% ifequal page blogs.number %}
+                            <li class="active"><a href="?{{ page.querystring }}">{{ page }}</a></li>
+                        {% else %}
+                             <li><a href="?{{ page.querystring }}" class="page">{{ page }}</a></li>
+                        {% endifequal %}
+                    {% else %}
+                        <li class="none"><a href="">...</a></li>
+                    {% endif %}
+                    {% endfor %}
+                    {% if blogs.has_next %}
+                        <li class="long"><a href="?{{ blogs.next_page_number.querystring }}">下一页</a></li>
+                    {% endif %}
+
+                </ul>
+            </div>
+        </nav>
+
+
+    </div>
+
+</div>
+
+
+            </div>
+        </main>
+    </div>
+
+{%endblock body%}

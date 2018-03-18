@@ -1,0 +1,80 @@
+<div class="sidebar-inner">
+{%load static from staticfiles%}
+    <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+            <img class="site-author-image" itemprop="image" src="{%static '/image/myface.jpg'%}" alt="geerniya">
+            <p class="site-author-name" itemprop="name">Mr.guo</p>
+            <p class="site-description motion-element" itemprop="description">微信：512830037</p>
+        </div>
+        <nav class="site-state motion-element">
+
+            <div class="site-state-item site-state-posts">
+                <a href="/archive/">
+                    <span class="site-state-item-count">{{blogCount}}</span>
+                    <span class="site-state-item-name">日志</span>
+                </a>
+            </div>
+
+            <div class="site-state-item site-state-categories">
+                <span class="site-state-item-count">{{categoryCount}}</span>
+                <span class="site-state-item-name">分类</span>
+            </div>
+
+            <div class="site-state-item site-state-tags">
+                <a href="/tags/">
+                    <span class="site-state-item-count">{{tagCount}}</span>
+                    <span class="site-state-item-name">标签</span>
+                </a>
+            </div>
+
+        </nav>
+
+        <div class="feed-link motion-element">
+            <a href="/rss/" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+            </a>
+        </div>
+
+        <div class="links-of-author motion-element">
+
+            <span class="links-of-author-item">
+                    <a href="https://github.com/hunson1990" target="_blank" title="GitHub">
+                        <i class="fa fa-fw fa-github"></i>
+                        GitHub
+                    </a>
+              </span>
+
+            <span class="links-of-author-item" style="display: none">
+                <a href="https://www.zhihu.com/people/geerniya" target="_blank" title="知乎">
+                    <i class="fa fa-book"></i>
+                    知乎
+                </a>
+            </span>
+
+            <span class="links-of-author-item">
+                <a href="http://blog.tao51d.com" target="_blank" title="知乎">
+                    <i class="fa fa-fw fa-globe"></i>
+                    博客
+                </a>
+            </span>
+
+        </div>
+
+        <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+            <div class="links-of-blogroll-title">
+                <i class="fa fa-link"></i>
+                Links
+            </div>
+            <ul class="links-of-blogroll-list">
+                {%for link in links%}
+                <li class="links-of-blogroll-item">
+                    <a href="{{link.url}}" title="{{link.name}}" target="_blank">{{link.name}}</a>
+                </li>
+                {%endfor%}
+
+            </ul>
+          </div>
+
+    </section>
+</div>
